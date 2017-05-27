@@ -18,6 +18,7 @@ function clearInputs(){
   console.log('Clear Inputs Works!');
   $('#numOneInput').val('');
   $('#numTwoInput').val('');
+  $('#answer').text('');
 } // end of clearInputs function
 
 function packageObj(){
@@ -61,33 +62,3 @@ function whichButton(){
     clearInputs();
   }
 } // end of whichButton function
-
-
-
-
-
-
-
-
-
-
-
-// function addition(){
-//   var buttonValue = $('#addBtn').val();
-//   console.log('The value of the button is: ',  buttonValue);
-// }
-//
-// function division(){
-//   var buttonValue = $('#divisionBtn').val();
-//   console.log('The value of the button is: ',  buttonValue);
-// }
-//
-// function multiplication(){
-//   var buttonValue = $('#multiplyBtn').val();
-//   console.log('The value of the button is: ',  buttonValue);
-// }
-//
-// function subtraction(){
-//   var buttonValue = $('#subtractBtn').val();
-//   console.log('The value of the button is: ',  buttonValue);
-// }
