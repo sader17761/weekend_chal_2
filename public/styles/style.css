@@ -1,7 +1,12 @@
 /*  CALCULATOR - STYLING  */
 
 h1 {
-  color: blue;
+  font-size: 42px;
+  font-weight: normal;
+  font-family: 'Roboto', sans-serif;
+  color: rgb(88, 102, 163);
+  text-align: center;
+  margin-top: 50px;
 }
 
 #calculatorDiv {
@@ -9,7 +14,7 @@ h1 {
   height: auto;
   background-color: rgb(218, 214, 214);
   padding: 40px 25px 20px 25px;
-  margin-top: 60px;
+  margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;

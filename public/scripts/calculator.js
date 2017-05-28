@@ -35,7 +35,7 @@ function packageObj(){
     data: objectToSend,
     success: function(response){
       console.log(response);
-      $('#calcInput').val('COMPUTING');
+      $('#calcInput').val('COMPUTING...');
       setTimeout(showAnswer, 3000);
       function showAnswer(){
         var answer = response.answer.toLocaleString('en', {useGrouping:true});
