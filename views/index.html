@@ -6,20 +6,47 @@
     <script type="text/javascript" src="vendors/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="scripts/calculator.js"></script>
     <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900" rel="stylesheet">
   </head>
   <body>
     <h1>Calculator - Week 2</h1>
-    <div>
-      <input type="number" id="numOneInput" placeholder="Enter a number.">
-      <input type="number" id="numTwoInput" placeholder="Enter a number.">
+    <div id="container">
+      <div id="calculatorDiv">
+
+        <div id="title"><span>Casio</span>
+          <!-- <p>HS-4G</p> -->
+        </div>
+        <div id="solarPanel">
+          <div id="pnl1"></div>
+          <div id="pnl2"></div>
+          <div id="pnl3"></div>
+          <div id="pnl4"></div>
+        </div>
+
+        <input type="text" id="calcInput" disabled="disabled">
+
+        <button id="sevenBtn" class="btn btnColorLight" value="7">7</button>
+        <button id="eightBtn" class="btn btnColorLight" value="8">8</button>
+        <button id="nineBtn" class="btn btnColorLight" value="9">9</button>
+        <button id="divideBtn" class="btn btnColorDark" value="/">/</button>
+
+        <button id="fourBtn" class="btn btnColorLight" value="4">4</button>
+        <button id="fiveBtn" class="btn btnColorLight" value="5">5</button>
+        <button id="sixBtn" class="btn btnColorLight" value="6">6</button>
+        <button id="multiplyBtn" class="btn btnColorDark" value="*">*</button>
+
+        <button id="oneBtn" class="btn btnColorLight" value="1">1</button>
+        <button id="twoBtn" class="btn btnColorLight" value="2">2</button>
+        <button id="threeBtn" class="btn btnColorLight" value="3">3</button>
+        <button id="subtractBtn" class="btn btnColorDark" value="-">-</button>
+
+        <button id="zeroBtn" class="btn btnColorLight" value="0">0</button>
+        <button id="equalBtn" class="btn btnColorLight" value="=">=</button>
+        <button id="plusBtn" class="btn btnColorDark" value="+">+</button>
+
+        <button id="clearAllBtn" class="btn btnColorDark" value="clear">Clear</button>
+        <p id="createdBy">by Corey Sader</p>
+      </div>
     </div>
-    <div>
-      <button type="button" value="+" id="addBtn">Addition</button>
-      <button type="button" value="-" id="subtractBtn">Subtraction</button>
-      <button type="button" value="*" id="multiplyBtn">Multiplication</button>
-      <button type="button" value="/" id="divisionBtn">Division</button>
-      <button type="button" id="clearBtn">Clear Inputs</button>
-    </div>
-    <p>Answer: <span id="answer"></span></p>
   </body>
 </html>

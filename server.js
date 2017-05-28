@@ -25,7 +25,7 @@ app.post('/calculate', function(req, res){
   var num1 = Number(req.body.num1);
   var num2 = Number(req.body.num2);
   var type = req.body.type;
-  console.log(num1, type, num2);
+
   var answerToReturn = {
     answer: calculation(num1, num2, type)
   };

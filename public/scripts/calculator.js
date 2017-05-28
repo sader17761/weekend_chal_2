@@ -3,60 +3,62 @@
 $(onReady);
 
 function onReady(){
-  // event (button) listeners
-  // $('#addBtn').on('click', addition);
-  // $('#subtractBtn').on('click', subtraction);
-  // $('#multiplyBtn').on('click', multiplication);
-  // $('#divisionBtn').on('click', division);
   $('button').on('click', whichButton);
 } // end of onReady
 
 // variables
+var inputNumber = '';
+var inputOne = '';
+var inputTwo = '';
 var operator = '';
 
 function clearInputs(){
   console.log('Clear Inputs Works!');
-  $('#numOneInput').val('');
-  $('#numTwoInput').val('');
-  $('#answer').text('');
+  $('#calcInput').val('0');
+  inputNumber = '';
+  inputOne = '';
+  inputTwo = '';
+  operator = '';
 } // end of clearInputs function
 
 function packageObj(){
-  console.log($('#numOneInput').val());
-  console.log($('#numTwoInput').val());
+  // this object gets created and sent to the server
   var objectToSend = {
-    num1: $('#numOneInput').val(),
-    num2: $('#numTwoInput').val(),
+    num1: inputOne,
+    num2: inputTwo,
     type: operator
   }; // end of objectToSend
-  console.log(objectToSend);
+
   $.ajax({
     type: 'POST',
     url: '/calculate',
     data: objectToSend,
     success: function(response){
       console.log(response);
-      $('#answer').text(response.answer);
+      $('#calcInput').val('COMPUTING');
+      setTimeout(showAnswer, 3000);
+      function showAnswer(){
+        var answer = response.answer.toLocaleString('en', {useGrouping:true});
+        $('#calcInput').val(answer);
+      }
     }
   }); // end ajax
 } // end of packageObj function
 
 function whichButton(){
-  if($(this).val() === '+'){
-    operator = '+';
-    console.log('The button clicked was: ', operator);
-    packageObj();
-  } else if ($(this).val() === '-'){
-    operator = '-';
-    console.log('The button clicked was: ', operator);
-    packageObj();
-  } else if ($(this).val() === '*'){
-    operator = '*';
-    console.log('The button clicked was: ', operator);
-    packageObj();
-  } else if ($(this).val() === '/'){
-    operator = '/';
-    console.log('The button clicked was: ', operator);
+  var value = $(this).val();
+  if(value >= 0 && value <= 9){
+    inputNumber += value;
+    $('#calcInput').val(inputNumber);
+  } else if (value === '+' || value === '-' || value === '*' || value === '/'){
+    inputOne = inputNumber;
+    operator = value;
+    $('#calcInput').val('');
+    inputNumber = '';
+  } else if (value === '='){
+    inputTwo = inputNumber;
+    $('#calcInput').val('');
+    inputNumber = '';
     packageObj();
   } else {
     clearInputs();
