@@ -72,6 +72,9 @@ function whichButton(){
     if(value >= 0 && value <= 9){
       inputNumber += value;
       $('#calcInput').val(inputNumber);
+    } else if (value === '.'){
+      inputNumber += value;
+      $('#calcInput').val(inputNumber);
     } else if (value === '+' || value === '-' || value === '*' || value === '/'){
       inputOne = inputNumber;
       operator = value;
