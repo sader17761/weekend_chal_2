@@ -7,9 +7,11 @@ This application works just like any other calculator but with one caveat, you c
 * Example: 21 * 7 =
 * Example: 8 - 5 =
 
-1. Enter a number.
-2. Select an operator.
-3. Enter a number.
-4. Select equal.
+1. Turn power on.
+2. Enter a number.
+3. Select an operator.
+4. Enter a number.
+5. Select equal.
+6. When finished, turn power off
 
 * After selecting equal the calculator will take three seconds to compute your answer then return it.
