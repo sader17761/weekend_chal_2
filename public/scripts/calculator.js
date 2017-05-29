@@ -11,6 +11,7 @@ var inputNumber = '';
 var inputOne = '';
 var inputTwo = '';
 var operator = '';
+var power = false;
 
 function clearInputs(){
   console.log('Clear Inputs Works!');
@@ -47,20 +48,41 @@ function packageObj(){
 
 function whichButton(){
   var value = $(this).val();
-  if(value >= 0 && value <= 9){
-    inputNumber += value;
-    $('#calcInput').val(inputNumber);
-  } else if (value === '+' || value === '-' || value === '*' || value === '/'){
-    inputOne = inputNumber;
-    operator = value;
-    $('#calcInput').val('');
-    inputNumber = '';
-  } else if (value === '='){
-    inputTwo = inputNumber;
-    $('#calcInput').val('');
-    inputNumber = '';
-    packageObj();
-  } else {
-    clearInputs();
+
+  if(value === 'on-off'){
+    if(power){
+      power = false;
+      $('#calcInput').val('');
+      $('#onOffBtn').html('Power On');
+      $('#calcInput').css('background-color', 'rgb(158, 168, 168)');
+      $('#onOffBtn').removeClass('btnOn').addClass('btnOff');
+      console.log(power);
+    } else {
+      power = true;
+      $('#onOffBtn').html('Power Off');
+      $('#calcInput').css('background-color', 'rgb(207, 218, 218)');
+      $('#onOffBtn').removeClass('btnOff').addClass('btnOn');
+      console.log(power);
+    }
   }
+
+  if(power){
+    if(value >= 0 && value <= 9){
+      inputNumber += value;
+      $('#calcInput').val(inputNumber);
+    } else if (value === '+' || value === '-' || value === '*' || value === '/'){
+      inputOne = inputNumber;
+      operator = value;
+      $('#calcInput').val('');
+      inputNumber = '';
+    } else if (value === '='){
+      inputTwo = inputNumber;
+      $('#calcInput').val('');
+      inputNumber = '';
+      packageObj();
+    } else if (value === 'clear'){
+      clearInputs();
+    }
+  }
+
 } // end of whichButton function
