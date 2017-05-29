@@ -49,6 +49,7 @@ function packageObj(){
 function whichButton(){
   var value = $(this).val();
 
+  // this will determine if the on/off button is on or off and change its properties
   if(value === 'on-off'){
     if(power){
       power = false;
@@ -66,6 +67,7 @@ function whichButton(){
     }
   }
 
+  // of the power is 'on' then this will allow the buttons to be used
   if(power){
     if(value >= 0 && value <= 9){
       inputNumber += value;
@@ -83,6 +85,5 @@ function whichButton(){
     } else if (value === 'clear'){
       clearInputs();
     }
-  }
-
+  } // end of power if statement
 } // end of whichButton function
