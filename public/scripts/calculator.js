@@ -20,6 +20,7 @@ function clearInputs(){
   inputOne = '';
   inputTwo = '';
   operator = '';
+  $('#dotBtn').disabled = false;
 } // end of clearInputs function
 
 function packageObj(){
@@ -30,7 +31,8 @@ function packageObj(){
     type: operator
   }; // end of objectToSend
 
-  $.ajax({
+  // post data
+  $.ajax({  // ajax is a method in jquery
     type: 'POST',
     url: '/calculate',
     data: objectToSend,
@@ -75,6 +77,7 @@ function whichButton(){
     } else if (value === '.'){
       inputNumber += value;
       $('#calcInput').val(inputNumber);
+      $('#dotBtn').disabled = true;
     } else if (value === '+' || value === '-' || value === '*' || value === '/'){
       inputOne = inputNumber;
       operator = value;
